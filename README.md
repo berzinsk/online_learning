@@ -1,16 +1,5 @@
-# online_learning
+# Online Learning
 
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+This is my second Flutter project. Here I will be learning UI and state management of Flutter apps.
+Data will be hardcoded in the application.
+Design used in the app has been created by Hitesh Tapaniya and has been downloaded from Figma Community section. The original design can be found [here](https://www.figma.com/community/file/1134363994710610029)
