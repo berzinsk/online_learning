@@ -19,8 +19,20 @@ class Header extends StatelessWidget {
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text('Hi, Karlis'),
-                Text('Let\'s start learning'),
+                Text(
+                  'Hi, Karlis',
+                  style: Theme.of(context)
+                      .textTheme
+                      .titleLarge
+                      ?.copyWith(color: Colors.white),
+                ),
+                Text(
+                  'Let\'s start learning',
+                  style: Theme.of(context)
+                      .textTheme
+                      .bodyMedium
+                      ?.copyWith(color: Colors.white),
+                ),
               ],
             ),
             const CircleAvatar(
