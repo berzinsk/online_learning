@@ -49,6 +49,7 @@ class MyApp extends StatelessWidget {
         ),
       ),
       home: const Scaffold(
+        backgroundColor: Colors.white,
         body: Home(),
       ),
     );

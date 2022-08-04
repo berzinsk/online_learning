@@ -62,7 +62,7 @@ class Header extends StatelessWidget {
           child: CurrentProgressDashboard(
             onMyCoursesPress: () {},
           ),
-        )
+        ),
       ],
     );
   }
