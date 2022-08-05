@@ -7,4 +7,6 @@ class AppColors {
   static Color kShadow = const Color(0xffb8b8d2);
   static Color kDarkBlue = const Color(0xff1f1f39);
   static Color kProgressOrange = const Color(0xffff5106);
+  static Color kAdBlue = const Color(0xffceecfe);
+  static Color kButtonOrange = const Color(0xffff6905);
 }

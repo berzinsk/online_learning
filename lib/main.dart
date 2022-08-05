@@ -30,6 +30,10 @@ class MyApp extends StatelessWidget {
             fontSize: 18,
             fontWeight: FontWeight.bold,
           ),
+          headlineMedium: GoogleFonts.poppins(
+            fontSize: 16,
+            fontWeight: FontWeight.bold,
+          ),
           bodyLarge: GoogleFonts.poppins(
             fontSize: 16,
             fontWeight: FontWeight.normal,
@@ -42,9 +46,13 @@ class MyApp extends StatelessWidget {
             fontSize: 12,
             fontWeight: FontWeight.normal,
           ),
+          labelMedium: GoogleFonts.poppins(
+            fontSize: 12,
+            fontWeight: FontWeight.bold,
+          ),
           labelSmall: GoogleFonts.poppins(
             fontSize: 11,
-            fontWeight: FontWeight.normal,
+            fontWeight: FontWeight.bold,
           ),
         ),
       ),
