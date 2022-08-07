@@ -10,4 +10,6 @@ class AppColors {
   static Color kAdBlue = const Color(0xffceecfe);
   static Color kButtonOrange = const Color(0xffff6905);
   static Color kProgressGray = const Color(0xff707070);
+  static Color kLightPink = const Color(0xffefe0ff);
+  static Color kPurple = const Color(0xff440687);
 }
