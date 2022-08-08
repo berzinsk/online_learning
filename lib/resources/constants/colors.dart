@@ -12,4 +12,5 @@ class AppColors {
   static Color kProgressGray = const Color(0xff707070);
   static Color kLightPink = const Color(0xffefe0ff);
   static Color kPurple = const Color(0xff440687);
+  static Color kMenuGray = const Color(0xffb8b8d2);
 }

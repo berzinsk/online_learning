@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import './screens/home.dart';
+import './navigation/bottom_nav_bar.dart';
 
 void main() {
   runApp(const MyApp());
@@ -57,6 +58,7 @@ class MyApp extends StatelessWidget {
         ),
       ),
       home: const Scaffold(
+        bottomNavigationBar: BottomNavBar(),
         backgroundColor: Colors.white,
         body: Home(),
       ),
