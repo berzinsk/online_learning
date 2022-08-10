@@ -5,6 +5,9 @@ import '../resources/constants/colors.dart';
 
 import '../screens/home.dart';
 import '../screens/courses.dart';
+import '../screens/search.dart';
+import '../screens/messages.dart';
+import '../screens/account.dart';
 
 class BottomNavBar extends StatefulWidget {
   const BottomNavBar({Key? key}) : super(key: key);
@@ -19,12 +22,18 @@ class _BottomNavBarState extends State<BottomNavBar> {
   final pages = [
     const Home(),
     const Courses(),
+    const Search(),
+    const Messages(),
+    const Account(),
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Home(),
+      body: IndexedStack(
+        index: _selectedIndex,
+        children: pages,
+      ),
       backgroundColor: Colors.white,
       bottomNavigationBar: Theme(
         data: ThemeData(
