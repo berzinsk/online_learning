@@ -57,11 +57,7 @@ class MyApp extends StatelessWidget {
           ),
         ),
       ),
-      home: const Scaffold(
-        bottomNavigationBar: BottomNavBar(),
-        backgroundColor: Colors.white,
-        body: Home(),
-      ),
+      home: const BottomNavBar(),
     );
   }
 }
