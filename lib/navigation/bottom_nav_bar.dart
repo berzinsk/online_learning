@@ -54,24 +54,49 @@ class _BottomNavBarState extends State<BottomNavBar> {
           unselectedLabelStyle: GoogleFonts.poppins(),
           items: [
             BottomNavigationBarItem(
-              icon: Image.asset('asset/images/icon_nav_home.png'),
+              icon: Image.asset(
+                'asset/images/icon_nav_home.png',
+                color: _selectedIndex == 0
+                    ? AppColors.kPrimaryBlue
+                    : AppColors.kSecondaryGray,
+              ),
               label: 'Home',
               tooltip: '',
             ),
             BottomNavigationBarItem(
-              icon: Image.asset('asset/images/icon_nav_course.png'),
+              icon: Image.asset(
+                'asset/images/icon_nav_course.png',
+                color: _selectedIndex == 1
+                    ? AppColors.kPrimaryBlue
+                    : AppColors.kSecondaryGray,
+              ),
               label: 'Course',
             ),
             BottomNavigationBarItem(
-              icon: Image.asset('asset/images/icon_nav_search.png'),
+              icon: Image.asset(
+                'asset/images/icon_nav_search.png',
+                color: _selectedIndex == 2
+                    ? AppColors.kPrimaryBlue
+                    : AppColors.kSecondaryGray,
+              ),
               label: 'Search',
             ),
             BottomNavigationBarItem(
-              icon: Image.asset('asset/images/icon_nav_notification.png'),
+              icon: Image.asset(
+                'asset/images/icon_nav_notification.png',
+                color: _selectedIndex == 3
+                    ? AppColors.kPrimaryBlue
+                    : AppColors.kSecondaryGray,
+              ),
               label: 'Message',
             ),
             BottomNavigationBarItem(
-              icon: Image.asset('asset/images/icon_nav_account.png'),
+              icon: Image.asset(
+                'asset/images/icon_nav_account.png',
+                color: _selectedIndex == 4
+                    ? AppColors.kPrimaryBlue
+                    : AppColors.kSecondaryGray,
+              ),
               label: 'Account',
             ),
           ],
