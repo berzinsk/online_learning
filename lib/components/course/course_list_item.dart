@@ -51,65 +51,67 @@ class CourseListItem extends StatelessWidget {
                     ),
                   ),
           ),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                course.name,
-                style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                      color: AppColors.kDarkBlue,
-                      fontWeight: FontWeight.w600,
-                    ),
-              ),
-              Padding(
-                padding: const EdgeInsets.symmetric(vertical: 2),
-                child: Row(
+          Flexible(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  course.name,
+                  style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                        color: AppColors.kDarkBlue,
+                        fontWeight: FontWeight.w600,
+                      ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 2),
+                  child: Row(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(right: 8),
+                        child: Image.asset('asset/images/icon_author.png'),
+                      ),
+                      Text(
+                        course.author,
+                        style: Theme.of(context)
+                            .textTheme
+                            .bodySmall
+                            ?.copyWith(color: AppColors.kShadow),
+                      ),
+                    ],
+                  ),
+                ),
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Padding(
                       padding: const EdgeInsets.only(right: 8),
-                      child: Image.asset('asset/images/icon_author.png'),
+                      child: Text(
+                        '${course.price}€',
+                        style: Theme.of(context)
+                            .textTheme
+                            .headlineMedium
+                            ?.copyWith(color: AppColors.kPrimaryBlue),
+                      ),
                     ),
-                    Text(
-                      course.author,
-                      style: Theme.of(context)
-                          .textTheme
-                          .bodySmall
-                          ?.copyWith(color: AppColors.kShadow),
+                    Container(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 8, vertical: 2),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(16),
+                        color: AppColors.kLighOrange,
+                      ),
+                      child: Text(
+                        '${course.durationInHours} hours',
+                        style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                              color: AppColors.kButtonOrange,
+                              fontSize: 10,
+                            ),
+                      ),
                     ),
                   ],
-                ),
-              ),
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(right: 8),
-                    child: Text(
-                      '${course.price}€',
-                      style: Theme.of(context)
-                          .textTheme
-                          .headlineMedium
-                          ?.copyWith(color: AppColors.kPrimaryBlue),
-                    ),
-                  ),
-                  Container(
-                    padding:
-                        const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(16),
-                      color: AppColors.kLighOrange,
-                    ),
-                    child: Text(
-                      '${course.durationInHours} hours',
-                      style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                            color: AppColors.kButtonOrange,
-                            fontSize: 10,
-                          ),
-                    ),
-                  ),
-                ],
-              )
-            ],
+                )
+              ],
+            ),
           )
         ],
       ),

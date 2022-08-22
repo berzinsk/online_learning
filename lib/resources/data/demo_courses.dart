@@ -27,4 +27,12 @@ const List<Course> demoCourses = [
     categoryName: 'Development',
     numberOfLikes: 3000,
   ),
+  Course(
+    name: 'Flutter Mobile App Development',
+    author: 'Karlis Berzins',
+    price: 210,
+    durationInHours: 16,
+    categoryName: 'Development',
+    numberOfLikes: 3000,
+  ),
 ];

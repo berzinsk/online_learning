@@ -92,6 +92,7 @@ class _CoursesState extends State<Courses> {
             ),
             Expanded(
               child: ListView.separated(
+                  padding: const EdgeInsets.only(bottom: 8),
                   itemBuilder: (context, index) {
                     Course course = _displayedCourses[index];
                     return CourseListItem(course: course);
