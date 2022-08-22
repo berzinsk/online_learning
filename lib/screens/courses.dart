@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:online_learning/resources/constants/colors.dart';
+import 'package:intl/intl.dart';
 
 import '../model/course.dart';
 import '../resources/data/demo_courses.dart';
+import '../resources/constants/colors.dart';
 import '../components/course/course_filter_row.dart';
 import '../components/course/course_list_item.dart';
 
@@ -36,7 +37,22 @@ class _CoursesState extends State<Courses> {
               widget._allCourses.where((e) => e.numberOfLikes > 500).toList();
           break;
         default:
-          _displayedCourses = widget._allCourses;
+          {
+            List<Course> courses = List.from(widget._allCourses);
+            courses.sort((a, b) {
+              int dateA = DateFormat('dd-MM-yyyy')
+                  .parse(a.dateCreated)
+                  .millisecondsSinceEpoch;
+              int dateB = DateFormat('dd-MM-yyyy')
+                  .parse(b.dateCreated)
+                  .millisecondsSinceEpoch;
+
+              return dateB.compareTo(dateA);
+            });
+
+            _displayedCourses = courses;
+          }
+
           break;
       }
 

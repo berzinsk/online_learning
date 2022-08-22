@@ -5,6 +5,7 @@ class Course {
   final int durationInHours;
   final String categoryName;
   final int numberOfLikes;
+  final String dateCreated;
   final String? imageUrl;
 
   const Course({
@@ -14,6 +15,7 @@ class Course {
     required this.durationInHours,
     required this.categoryName,
     required this.numberOfLikes,
+    required this.dateCreated,
     this.imageUrl,
   });
 }
