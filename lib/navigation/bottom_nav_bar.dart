@@ -50,7 +50,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
           selectedItemColor: AppColors.kPrimaryBlue,
           selectedLabelStyle: GoogleFonts.poppins(),
           unselectedFontSize: 12,
-          unselectedItemColor: AppColors.kMenuGray,
+          unselectedItemColor: AppColors.kShadow,
           unselectedLabelStyle: GoogleFonts.poppins(),
           items: [
             BottomNavigationBarItem(
