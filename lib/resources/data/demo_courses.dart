@@ -17,6 +17,8 @@ const List<Course> demoCourses = [
     price: 110,
     durationInHours: 16,
     categoryName: 'Development',
+    imageUrl:
+        'https://s3.amazonaws.com/cdn-media-1.freecodecamp.org/ghost/2019/05/java.jpg',
     numberOfLikes: 100,
   ),
   Course(
@@ -25,14 +27,47 @@ const List<Course> demoCourses = [
     price: 210,
     durationInHours: 16,
     categoryName: 'Development',
+    imageUrl: 'https://www.filepicker.io/api/file/sXz6u6kMQzK9uXkCwtPv',
     numberOfLikes: 3000,
   ),
   Course(
-    name: 'Flutter Mobile App Development',
+    name: 'iOS Mobile App Development',
+    author: 'John Doe',
+    price: 200,
+    durationInHours: 16,
+    categoryName: 'Development',
+    imageUrl:
+        'https://cdn01.alison-static.net/courses/4691/alison_courseware_intro_4691.jpg',
+    numberOfLikes: 400,
+  ),
+  Course(
+    name: 'Android for Beginners',
+    author: 'Jane Doe',
+    price: 190,
+    durationInHours: 16,
+    categoryName: 'Development',
+    imageUrl:
+        'https://www.spaceotechnologies.com/wp-content/uploads/2020/12/android_app_development_course_for_beginners1.png',
+    numberOfLikes: 300,
+  ),
+  Course(
+    name: 'React Native for Beginners',
     author: 'Karlis Berzins',
+    price: 190,
+    durationInHours: 16,
+    categoryName: 'Development',
+    imageUrl:
+        'https://process.fs.teachablecdn.com/ADNupMnWyR7kCWRvm76Laz/resize=width:705/https://www.filepicker.io/api/file/4C6yPDywSUeWYLyg1h9G',
+    numberOfLikes: 250,
+  ),
+  Course(
+    name: 'Mobile App Design',
+    author: 'Janis Krumins',
     price: 210,
     durationInHours: 16,
     categoryName: 'Development',
-    numberOfLikes: 3000,
+    imageUrl:
+        'https://cdn.dribbble.com/users/2742725/screenshots/16244904/media/0c20fd815f1209ac4762eb565c7284cb.png?compress=1&resize=400x300&vertical=top',
+    numberOfLikes: 800,
   ),
 ];
