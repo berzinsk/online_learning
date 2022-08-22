@@ -4,6 +4,7 @@ class Course {
   final double price;
   final int durationInHours;
   final String categoryName;
+  final int numberOfLikes;
   final String? imageUrl;
 
   const Course({
@@ -12,6 +13,7 @@ class Course {
     required this.price,
     required this.durationInHours,
     required this.categoryName,
+    required this.numberOfLikes,
     this.imageUrl,
   });
 }

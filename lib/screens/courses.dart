@@ -27,6 +27,19 @@ class _CoursesState extends State<Courses> {
 
   void onFilterSelected(int index) {
     setState(() {
+      switch (index) {
+        case 0:
+          _displayedCourses = widget._allCourses;
+          break;
+        case 1:
+          _displayedCourses =
+              widget._allCourses.where((e) => e.numberOfLikes > 500).toList();
+          break;
+        default:
+          _displayedCourses = widget._allCourses;
+          break;
+      }
+
       _selectedFilterIndex = index;
     });
   }
