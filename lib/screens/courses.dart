@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:online_learning/providers/course_provider.dart';
+import 'package:provider/provider.dart';
 
 import '../model/course.dart';
 import '../resources/data/demo_courses.dart';
@@ -8,7 +10,7 @@ import '../components/course/course_filter_row.dart';
 import '../components/course/course_list_item.dart';
 
 class Courses extends StatefulWidget {
-  const Courses({Key? key}) : super(key: key);
+  Courses({Key? key}) : super(key: key);
   final List<Course> _allCourses = demoCourses;
 
   @override
@@ -111,7 +113,13 @@ class _CoursesState extends State<Courses> {
                   padding: const EdgeInsets.only(bottom: 8),
                   itemBuilder: (context, index) {
                     Course course = _displayedCourses[index];
-                    return CourseListItem(course: course);
+                    return CourseListItem(
+                      course: course,
+                      onItemTapped: (course) {
+                        Provider.of<CourseProvider>(context, listen: false)
+                            .courseTapped(index);
+                      },
+                    );
                   },
                   separatorBuilder: (context, index) {
                     return const SizedBox(height: 16);

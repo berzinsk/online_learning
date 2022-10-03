@@ -1,62 +1,97 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 
-import './navigation/bottom_nav_bar.dart';
+import 'navigation/app_router.dart';
+import 'providers/app_state_provider.dart';
+import 'providers/course_provider.dart';
 
 void main() {
   runApp(const MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({Key? key}) : super(key: key);
 
   @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  final _appStateProvider = AppStateProvider();
+  final _courseProvider = CourseProvider();
+  late AppRouter _appRouter;
+
+  @override
+  void initState() {
+    super.initState();
+
+    _appRouter = AppRouter(
+      appStateProvider: _appStateProvider,
+      courseProvider: _courseProvider,
+    );
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Online Learning',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-        textTheme: TextTheme(
-          titleLarge: GoogleFonts.poppins(
-            fontSize: 24,
-            fontWeight: FontWeight.bold,
-          ),
-          titleSmall: GoogleFonts.poppins(
-            fontSize: 20,
-            fontWeight: FontWeight.bold,
-          ),
-          headlineLarge: GoogleFonts.poppins(
-            fontSize: 18,
-            fontWeight: FontWeight.w500,
-          ),
-          headlineMedium: GoogleFonts.poppins(
-            fontSize: 16,
-            fontWeight: FontWeight.bold,
-          ),
-          bodyLarge: GoogleFonts.poppins(
-            fontSize: 16,
-            fontWeight: FontWeight.normal,
-          ),
-          bodyMedium: GoogleFonts.poppins(
-            fontSize: 14,
-            fontWeight: FontWeight.normal,
-          ),
-          bodySmall: GoogleFonts.poppins(
-            fontSize: 12,
-            fontWeight: FontWeight.normal,
-          ),
-          labelMedium: GoogleFonts.poppins(
-            fontSize: 12,
-            fontWeight: FontWeight.bold,
-          ),
-          labelSmall: GoogleFonts.poppins(
-            fontSize: 11,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (context) => _appStateProvider),
+        ChangeNotifierProvider(create: (context) => _courseProvider),
+      ],
+      child: Consumer(
+        builder: (context, value, child) {
+          return MaterialApp(
+            debugShowCheckedModeBanner: false,
+            title: 'Online Learning',
+            theme: ThemeData(
+              primarySwatch: Colors.blue,
+              textTheme: TextTheme(
+                titleLarge: GoogleFonts.poppins(
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                ),
+                titleSmall: GoogleFonts.poppins(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                ),
+                headlineLarge: GoogleFonts.poppins(
+                  fontSize: 18,
+                  fontWeight: FontWeight.w500,
+                ),
+                headlineMedium: GoogleFonts.poppins(
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                ),
+                bodyLarge: GoogleFonts.poppins(
+                  fontSize: 16,
+                  fontWeight: FontWeight.normal,
+                ),
+                bodyMedium: GoogleFonts.poppins(
+                  fontSize: 14,
+                  fontWeight: FontWeight.normal,
+                ),
+                bodySmall: GoogleFonts.poppins(
+                  fontSize: 12,
+                  fontWeight: FontWeight.normal,
+                ),
+                labelMedium: GoogleFonts.poppins(
+                  fontSize: 12,
+                  fontWeight: FontWeight.bold,
+                ),
+                labelSmall: GoogleFonts.poppins(
+                  fontSize: 11,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+            home: Router(
+              routerDelegate: _appRouter,
+              backButtonDispatcher: RootBackButtonDispatcher(),
+            ),
+          );
+        },
       ),
-      home: const BottomNavBar(),
     );
   }
 }
