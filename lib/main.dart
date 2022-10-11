@@ -20,17 +20,8 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   final _appStateProvider = AppStateProvider();
   final _courseProvider = CourseProvider();
-  late AppRouter _appRouter;
 
-  @override
-  void initState() {
-    super.initState();
-
-    _appRouter = AppRouter(
-      appStateProvider: _appStateProvider,
-      courseProvider: _courseProvider,
-    );
-  }
+  late final _appRouter = AppRouter(_appStateProvider, _courseProvider);
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +32,9 @@ class _MyAppState extends State<MyApp> {
       ],
       child: Consumer(
         builder: (context, value, child) {
-          return MaterialApp(
+          final router = _appRouter.router;
+
+          return MaterialApp.router(
             debugShowCheckedModeBanner: false,
             title: 'Online Learning',
             theme: ThemeData(
@@ -85,10 +78,9 @@ class _MyAppState extends State<MyApp> {
                 ),
               ),
             ),
-            home: Router(
-              routerDelegate: _appRouter,
-              backButtonDispatcher: RootBackButtonDispatcher(),
-            ),
+            routerDelegate: router.routerDelegate,
+            routeInformationParser: router.routeInformationParser,
+            routeInformationProvider: router.routeInformationProvider,
           );
         },
       ),

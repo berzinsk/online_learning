@@ -30,42 +30,14 @@ class CourseData extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    course?.name ?? '',
-                    style: Theme.of(context)
-                        .textTheme
-                        .titleSmall
-                        ?.copyWith(color: AppColors.kDarkBlue),
-                  ),
-                  Row(
-                    children: [
-                      Text(
-                        '${course?.durationInHours ?? ''}h',
-                        style: Theme.of(context)
-                            .textTheme
-                            .bodySmall
-                            ?.copyWith(color: AppColors.kPrimaryTextGray),
-                      ),
-                      Text(
-                        ' · ',
-                        style: Theme.of(context)
-                            .textTheme
-                            .bodySmall
-                            ?.copyWith(color: AppColors.kPrimaryTextGray),
-                      ),
-                      Text(
-                        '24 Lessons',
-                        style: Theme.of(context)
-                            .textTheme
-                            .bodySmall
-                            ?.copyWith(color: AppColors.kPrimaryTextGray),
-                      ),
-                    ],
-                  ),
-                ],
+              Flexible(
+                child: Text(
+                  course?.title ?? '',
+                  style: Theme.of(context)
+                      .textTheme
+                      .titleSmall
+                      ?.copyWith(color: AppColors.kDarkBlue),
+                ),
               ),
               Text(
                 '${course?.price ?? ''}€',
@@ -74,6 +46,31 @@ class CourseData extends StatelessWidget {
                     .titleSmall
                     ?.copyWith(color: AppColors.kPrimaryBlue),
               )
+            ],
+          ),
+          Row(
+            children: [
+              Text(
+                '${course?.durationInHours ?? ''}h',
+                style: Theme.of(context)
+                    .textTheme
+                    .bodySmall
+                    ?.copyWith(color: AppColors.kPrimaryTextGray),
+              ),
+              Text(
+                ' · ',
+                style: Theme.of(context)
+                    .textTheme
+                    .bodySmall
+                    ?.copyWith(color: AppColors.kPrimaryTextGray),
+              ),
+              Text(
+                '24 Lessons',
+                style: Theme.of(context)
+                    .textTheme
+                    .bodySmall
+                    ?.copyWith(color: AppColors.kPrimaryTextGray),
+              ),
             ],
           ),
           Padding(

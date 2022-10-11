@@ -1,7 +1,8 @@
 import 'lecture.dart';
 
 class Course {
-  final String name;
+  final int id;
+  final String title;
   final String description;
   final String author;
   final double price;
@@ -13,7 +14,8 @@ class Course {
   final List<Lecture> lectures;
 
   const Course({
-    required this.name,
+    required this.id,
+    required this.title,
     required this.description,
     required this.author,
     required this.price,

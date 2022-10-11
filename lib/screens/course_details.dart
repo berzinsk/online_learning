@@ -1,28 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+import 'package:go_router/go_router.dart';
 
-import '../../providers/course_provider.dart';
-import '../../resources/constants/colors.dart';
-import '../../model/online_learning_pages.dart';
-import '../../components/course_details/course_data.dart';
-import '../../components/shared/button_primary.dart';
+import '../resources/constants/colors.dart';
+import '../components/course_details/course_data.dart';
+import '../components/shared/button_primary.dart';
+import '../model/course.dart';
 
 class CourseDetails extends StatelessWidget {
-  static MaterialPage page() {
-    return MaterialPage(
-      name: OnlineLearningPages.courseDetails,
-      key: ValueKey(OnlineLearningPages.courseDetails),
-      child: const CourseDetails(),
-    );
-  }
+  final Course? course;
 
-  const CourseDetails({super.key});
+  const CourseDetails({
+    super.key,
+    required this.course,
+  });
 
   @override
   Widget build(BuildContext context) {
-    final course =
-        Provider.of<CourseProvider>(context, listen: false).getSelectedCourse;
-
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
@@ -30,7 +23,7 @@ class CourseDetails extends StatelessWidget {
         elevation: 0,
         leading: GestureDetector(
           child: const Icon(Icons.arrow_back_ios, color: Colors.black),
-          onTap: () => Navigator.pop(context),
+          onTap: () => context.pop(),
         ),
       ),
       body: Stack(
@@ -51,15 +44,8 @@ class CourseDetails extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  const Image(image: AssetImage('asset/images/tag.png')),
-                  Text(
-                    course?.name ?? '',
-                    style: Theme.of(context)
-                        .textTheme
-                        .titleSmall
-                        ?.copyWith(color: AppColors.kDarkBlue),
-                  ),
+                children: const [
+                  Image(image: AssetImage('asset/images/tag.png')),
                 ],
               ),
             ),
@@ -110,7 +96,12 @@ class CourseDetails extends StatelessWidget {
                     const SizedBox(width: 14),
                     ButtonPrimary(
                       title: 'Buy Now',
-                      onPressed: () {},
+                      onPressed: () {
+                        context.goNamed('payment', params: {
+                          'tab': '1',
+                          'id': '${course?.id}',
+                        });
+                      },
                     ),
                   ],
                 ),

@@ -3,7 +3,8 @@ import 'demo_lectures.dart';
 
 List<Course> demoCourses = [
   Course(
-    name: 'Product Design v1.0',
+    id: 193847,
+    title: 'Product Design v1.0',
     description:
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
     author: 'Robertson Connine',
@@ -17,7 +18,8 @@ List<Course> demoCourses = [
     lectures: demoLectures,
   ),
   Course(
-    name: 'Java Development',
+    id: 123017,
+    title: 'Java Development',
     description:
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
     author: 'Nguyen Shane',
@@ -31,7 +33,8 @@ List<Course> demoCourses = [
     lectures: demoLectures,
   ),
   Course(
-    name: 'Mobile Apps with Flutter',
+    id: 133857,
+    title: 'Mobile Apps with Flutter',
     description:
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
     author: 'Karlis Berzins',
@@ -44,7 +47,8 @@ List<Course> demoCourses = [
     lectures: demoLectures,
   ),
   Course(
-    name: 'iOS Mobile App Development',
+    id: 143647,
+    title: 'iOS Mobile App Development',
     description:
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
     author: 'John Doe',
@@ -58,7 +62,8 @@ List<Course> demoCourses = [
     lectures: demoLectures,
   ),
   Course(
-    name: 'Android for Beginners',
+    id: 157847,
+    title: 'Android for Beginners',
     description:
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
     author: 'Jane Doe',
@@ -72,7 +77,8 @@ List<Course> demoCourses = [
     lectures: demoLectures,
   ),
   Course(
-    name: 'React Native for Beginners',
+    id: 163848,
+    title: 'React Native for Beginners',
     description:
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
     author: 'Karlis Berzins',
@@ -86,7 +92,8 @@ List<Course> demoCourses = [
     lectures: demoLectures,
   ),
   Course(
-    name: 'Mobile App Design',
+    id: 171297,
+    title: 'Mobile App Design',
     description:
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
     author: 'Janis Krumins',

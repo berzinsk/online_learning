@@ -1,60 +1,75 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
-import '../model/online_learning_pages.dart';
-import '../providers/app_state_provider.dart';
-import '../navigation/bottom_nav_bar.dart';
-import '../providers/course_provider.dart';
 import '../screens/screens.dart';
+import '../providers/app_state_provider.dart';
+import '../providers/course_provider.dart';
+import '../navigation/bottom_nav_bar.dart';
 
-class AppRouter extends RouterDelegate
-    with ChangeNotifier, PopNavigatorRouterDelegateMixin {
-  @override
-  final GlobalKey<NavigatorState> navigatorKey;
-
+class AppRouter {
   final AppStateProvider appStateProvider;
   final CourseProvider courseProvider;
 
-  AppRouter({
-    required this.appStateProvider,
-    required this.courseProvider,
-  }) : navigatorKey = GlobalKey<NavigatorState>() {
-    appStateProvider.addListener(notifyListeners);
-    courseProvider.addListener(notifyListeners);
-  }
+  AppRouter(
+    this.appStateProvider,
+    this.courseProvider,
+  );
 
-  @override
-  void dispose() {
-    appStateProvider.removeListener(notifyListeners);
-    courseProvider.removeListener(notifyListeners);
+  late final router = GoRouter(
+    debugLogDiagnostics: true,
+    refreshListenable: appStateProvider,
+    initialLocation: '/home',
+    routes: <GoRoute>[
+      GoRoute(
+        name: 'home',
+        path: '/:tab',
+        builder: (context, state) {
+          final tab = int.tryParse(state.params['tab'] ?? '') ?? 0;
 
-    super.dispose();
-  }
+          return BottomNavBar(
+            currentTab: tab,
+            coursePorvider: courseProvider,
+          );
+        },
+        routes: [
+          GoRoute(
+            name: 'course',
+            path: 'course/:id',
+            builder: (context, state) {
+              final courseId = int.tryParse(state.params['id'] ?? '') ?? 0;
+              final course = courseProvider.getCourse(courseId);
 
-  @override
-  Widget build(BuildContext context) {
-    return Navigator(
-      key: navigatorKey,
-      onPopPage: _handlePopPage,
-      pages: [
-        if (appStateProvider.isInitialized)
-          BottomNavBar.page(appStateProvider.getSelectedTab),
-        if (courseProvider.selectedIndex != -1) CourseDetails.page(),
-      ],
-    );
-  }
+              return CourseDetails(course: course);
+            },
+            routes: [
+              GoRoute(
+                name: 'payment',
+                path: 'payment',
+                pageBuilder: (context, state) {
+                  final id = int.tryParse(state.params['id'] ?? '') ?? 0;
+                  final course = courseProvider.getCourse(id);
 
-  bool _handlePopPage(Route<dynamic> route, result) {
-    if (!route.didPop(result)) {
-      return false;
-    }
-
-    if (route.settings.name == OnlineLearningPages.courseDetails) {
-      courseProvider.courseTapped(-1);
-    }
-
-    return true;
-  }
-
-  @override
-  Future<void> setNewRoutePath(configuration) async {}
+                  return CupertinoPage(
+                    fullscreenDialog: true,
+                    child: Payment(course: course),
+                  );
+                },
+              ),
+            ],
+          ),
+        ],
+      ),
+    ],
+    errorBuilder: (context, state) {
+      return Scaffold(
+        body: Center(
+          child: Text(
+            state.error.toString(),
+          ),
+        ),
+      );
+    },
+    // TODO: Add Redirect Handler
+  );
 }

@@ -60,7 +60,7 @@ class CourseListItem extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    course.name,
+                    course.title,
                     style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                           color: AppColors.kDarkBlue,
                           fontWeight: FontWeight.w600,

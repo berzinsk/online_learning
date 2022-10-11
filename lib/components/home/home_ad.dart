@@ -8,7 +8,7 @@ class HomeAd extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 154,
+      height: 158,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(16),
         color: AppColors.kAdBlue,

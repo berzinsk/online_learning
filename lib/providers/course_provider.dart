@@ -5,15 +5,17 @@ import '../resources/data/demo_courses.dart';
 
 class CourseProvider extends ChangeNotifier {
   final _courses = demoCourses;
-  int _selectedIndex = -1;
-
   List<Course> get courses => List.unmodifiable(_courses);
-  int get selectedIndex => _selectedIndex;
-  Course? get getSelectedCourse =>
-      _selectedIndex != -1 ? _courses[_selectedIndex] : null;
 
-  void courseTapped(int index) {
-    _selectedIndex = index;
-    notifyListeners();
+  Course? getCourse(int id) {
+    final index = _courses.indexWhere((e) => e.id == id);
+    if (index == -1) return null;
+
+    return _courses[index];
+  }
+
+  int getCourseId(int index) {
+    final course = _courses[index];
+    return course.id;
   }
 }

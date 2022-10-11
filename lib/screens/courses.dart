@@ -1,17 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:online_learning/providers/course_provider.dart';
-import 'package:provider/provider.dart';
+import 'package:go_router/go_router.dart';
 
 import '../model/course.dart';
-import '../resources/data/demo_courses.dart';
 import '../resources/constants/colors.dart';
 import '../components/course/course_filter_row.dart';
 import '../components/course/course_list_item.dart';
 
 class Courses extends StatefulWidget {
-  Courses({Key? key}) : super(key: key);
-  final List<Course> _allCourses = demoCourses;
+  final CourseProvider dataProvider;
+
+  const Courses({
+    Key? key,
+    required this.dataProvider,
+  }) : super(key: key);
 
   @override
   State<Courses> createState() => _CoursesState();
@@ -23,24 +26,26 @@ class _CoursesState extends State<Courses> {
 
   @override
   void initState() {
-    _displayedCourses = widget._allCourses;
+    _displayedCourses = widget.dataProvider.courses;
 
     super.initState();
   }
 
   void onFilterSelected(int index) {
+    final allCourses = widget.dataProvider.courses;
+
     setState(() {
       switch (index) {
         case 0:
-          _displayedCourses = widget._allCourses;
+          _displayedCourses = allCourses;
           break;
         case 1:
           _displayedCourses =
-              widget._allCourses.where((e) => e.numberOfLikes > 500).toList();
+              allCourses.where((e) => e.numberOfLikes > 500).toList();
           break;
         default:
           {
-            List<Course> courses = List.from(widget._allCourses);
+            List<Course> courses = List.from(allCourses);
             courses.sort((a, b) {
               int dateA = DateFormat('dd-MM-yyyy')
                   .parse(a.dateCreated)
@@ -116,8 +121,12 @@ class _CoursesState extends State<Courses> {
                     return CourseListItem(
                       course: course,
                       onItemTapped: (course) {
-                        Provider.of<CourseProvider>(context, listen: false)
-                            .courseTapped(index);
+                        final courseId = widget.dataProvider.getCourseId(index);
+
+                        context.goNamed('course', params: {
+                          'tab': '1',
+                          'id': '$courseId',
+                        });
                       },
                     );
                   },

@@ -1,27 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 import '../resources/constants/colors.dart';
 import '../providers/app_state_provider.dart';
 import '../screens/screens.dart';
-import '../model/online_learning_pages.dart';
+import '../providers/course_provider.dart';
 
 class BottomNavBar extends StatefulWidget {
-  static MaterialPage page(int currentTab) {
-    return MaterialPage(
-      name: OnlineLearningPages.home,
-      key: ValueKey(OnlineLearningPages.home),
-      child: BottomNavBar(
-        currentTab: currentTab,
-      ),
-    );
-  }
-
   final int currentTab;
+  final CourseProvider coursePorvider;
+
   const BottomNavBar({
     Key? key,
     required this.currentTab,
+    required this.coursePorvider,
   }) : super(key: key);
 
   @override
@@ -29,13 +23,20 @@ class BottomNavBar extends StatefulWidget {
 }
 
 class _BottomNavBarState extends State<BottomNavBar> {
-  final pages = [
-    const Home(),
-    Courses(),
-    const Search(),
-    const Messages(),
-    const Account(),
-  ];
+  List<Widget> _pages = [];
+
+  @override
+  void initState() {
+    super.initState();
+
+    _pages = [
+      const Home(),
+      Courses(dataProvider: widget.coursePorvider),
+      const Search(),
+      const Messages(),
+      const Account(),
+    ];
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -44,7 +45,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
         return Scaffold(
           body: IndexedStack(
             index: widget.currentTab,
-            children: pages,
+            children: _pages,
           ),
           backgroundColor: Colors.white,
           bottomNavigationBar: Theme(
@@ -121,5 +122,8 @@ class _BottomNavBarState extends State<BottomNavBar> {
 
   void _onItemTapped(int index) {
     Provider.of<AppStateProvider>(context, listen: false).goToTab(index);
+    context.goNamed('home', params: {
+      'tab': '$index',
+    });
   }
 }
