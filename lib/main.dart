@@ -38,6 +38,8 @@ class _MyAppState extends State<MyApp> {
             debugShowCheckedModeBanner: false,
             title: 'Online Learning',
             theme: ThemeData(
+              highlightColor: Colors.transparent,
+              splashColor: Colors.transparent,
               primarySwatch: Colors.blue,
               textTheme: TextTheme(
                 titleLarge: GoogleFonts.poppins(
