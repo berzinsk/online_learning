@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:online_learning/routing/app_router.dart';
 
 import '../../../../resources/constants/colors.dart';
 import 'course_data.dart';
@@ -97,7 +98,7 @@ class CourseDetails extends StatelessWidget {
                     ButtonPrimary(
                       title: 'Buy Now',
                       onPressed: () {
-                        context.goNamed('payment', params: {
+                        context.goNamed(AppRoute.payment.name, params: {
                           'tab': '1',
                           'id': '${course?.id}',
                         });

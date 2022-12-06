@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:online_learning/providers/course_provider.dart';
 import 'package:go_router/go_router.dart';
+import 'package:online_learning/routing/app_router.dart';
 
 import '../../domain/course.dart';
 import '../../../../resources/constants/colors.dart';
@@ -123,7 +124,7 @@ class _CoursesState extends State<Courses> {
                       onItemTapped: (course) {
                         final courseId = widget.dataProvider.getCourseId(index);
 
-                        context.goNamed('course', params: {
+                        context.goNamed(AppRoute.course.name, params: {
                           'tab': '1',
                           'id': '$courseId',
                         });

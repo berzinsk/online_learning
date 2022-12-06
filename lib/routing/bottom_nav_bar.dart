@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:online_learning/routing/app_router.dart';
 import 'package:provider/provider.dart';
 
 import '../resources/constants/colors.dart';
@@ -122,7 +123,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
 
   void _onItemTapped(int index) {
     Provider.of<AppStateProvider>(context, listen: false).goToTab(index);
-    context.goNamed('home', params: {
+    context.goNamed(AppRoute.home.name, params: {
       'tab': '$index',
     });
   }
