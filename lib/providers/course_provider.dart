@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../model/course.dart';
-import '../resources/data/demo_courses.dart';
+import '../features/course/domain/course.dart';
+import '../features/course/data/demo_courses.dart';
 
 class CourseProvider extends ChangeNotifier {
   final _courses = demoCourses;

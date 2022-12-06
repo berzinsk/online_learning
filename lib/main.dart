@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-import 'navigation/app_router.dart';
+import 'routing/app_router.dart';
 import 'providers/app_state_provider.dart';
 import 'providers/course_provider.dart';
 
