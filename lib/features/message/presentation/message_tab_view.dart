@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:online_learning/features/message/presentation/messages_tab/tab_messages.dart';
+import 'package:online_learning/features/message/presentation/notifications/tab_notifications.dart';
 
 class MessageTabView extends StatefulWidget {
   const MessageTabView({Key? key}) : super(key: key);
@@ -47,9 +48,7 @@ class _MessageTabViewState extends State<MessageTabView>
             controller: _tabController,
             children: [
               TabMessages(),
-              const Center(
-                child: Text('Tab 2'),
-              ),
+              TabNotifications(),
             ],
           ),
         ),
