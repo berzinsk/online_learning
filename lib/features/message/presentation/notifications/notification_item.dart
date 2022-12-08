@@ -17,7 +17,10 @@ class NotificationItem extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20),
       child: Container(
-        padding: const EdgeInsets.all(20),
+        padding: const EdgeInsets.symmetric(
+          horizontal: 20,
+          vertical: 16,
+        ),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(16),
           color: Colors.white,
