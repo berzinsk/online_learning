@@ -18,7 +18,7 @@ class Messages extends StatelessWidget {
               style: Theme.of(context).textTheme.titleLarge,
             ),
           ),
-          Flexible(
+          const Flexible(
             child: MessageTabView(),
           ),
         ],

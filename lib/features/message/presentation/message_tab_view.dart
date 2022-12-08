@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:online_learning/features/message/presentation/tab_messages.dart';
+import 'package:online_learning/features/message/presentation/messages_tab/tab_messages.dart';
 
 class MessageTabView extends StatefulWidget {
-  MessageTabView({Key? key}) : super(key: key);
+  const MessageTabView({Key? key}) : super(key: key);
 
   @override
   State<MessageTabView> createState() => _MessageTabViewState();
@@ -12,7 +12,7 @@ class _MessageTabViewState extends State<MessageTabView>
     with SingleTickerProviderStateMixin {
   late TabController _tabController;
 
-  final _tabs = [
+  final _tabs = const [
     Tab(child: Text('messages')),
     Tab(child: Text('notifications')),
   ];

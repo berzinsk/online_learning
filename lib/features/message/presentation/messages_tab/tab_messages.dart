@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:online_learning/features/message/presentation/message_item.dart';
-import 'package:online_learning/features/message/domain/message.dart';
+import 'package:online_learning/features/message/presentation/messages_tab/message_item.dart';
 import 'package:online_learning/features/message/data/demo_messages.dart';
 
 class TabMessages extends StatelessWidget {
