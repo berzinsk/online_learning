@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:online_learning/features/message/data/demo_app_notifications.dart';
 import 'package:online_learning/features/message/domain/app_notification.dart';
 import 'package:online_learning/features/message/presentation/notifications/app_notification_icon.dart';
 import 'package:online_learning/resources/constants/colors.dart';
